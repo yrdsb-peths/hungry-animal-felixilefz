@@ -8,10 +8,9 @@ public class Elephant extends Actor
     {
        
        MouseInfo m = Greenfoot.getMouseInfo();
-       System.out.println(m);
+       // System.out.println(m);
        
        if (m == null || (getX() == m.getX() && getY() == m.getY())) {
-           System.out.println(0);
            return;
        }
        
