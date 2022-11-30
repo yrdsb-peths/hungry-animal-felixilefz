@@ -3,35 +3,34 @@ import java.util.*;
 
 public class MyWorld extends World
 {
-    private ArrayList<Apple> appleList = new ArrayList<Apple>();
-    
+    // private ArrayList<Apple> appleList = new ArrayList<Apple>();
+    public int appleCount = 0;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
         Elephant e = new Elephant();
-        
         addObject(e, 100, 300);
-        
+        addApple();
         
     }
     
     public void act() {
-        // instead of deleting teleport it back 
-        if (appleList.size() < 5) {
-            Apple apple = new Apple();
-            int x = Greenfoot.getRandomNumber(500) + 50;
-            addObject(apple, x, 10);
-            appleList.add(apple);
-        }
-        
-        
-        for (int i = 0; i < appleList.size(); i++) {
-            if (appleList.get(i).getY()+10 >= getHeight()) {
-                // can use isAtEdge;
-                removeObject(appleList.remove(i));
-                i --;
+        if (appleCount < 3) {
+            if (Greenfoot.getRandomNumber(3) == 0) {
+                addApple();
             }
         }
+    }
+    
+    public void deleteApple(Apple a) {
+        removeObject(a);
+        addApple();
+    }
+    
+    public void addApple() {
+        Apple a = new Apple();
+        addObject(a, Greenfoot.getRandomNumber(500) + 50, 10);
+        appleCount ++;
     }
 }
