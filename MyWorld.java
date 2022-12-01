@@ -5,6 +5,10 @@ public class MyWorld extends World
 {
     // private ArrayList<Apple> appleList = new ArrayList<Apple>();
     public int appleCount = 0;
+    private int applesCaught = 0;
+    private int applesMissed = 0;
+    private Label stats;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -12,7 +16,8 @@ public class MyWorld extends World
         Elephant e = new Elephant();
         addObject(e, 100, 300);
         addApple();
-        
+        stats = new Label("Caught: " + applesCaught + " Missed: " + applesMissed, 40);
+        addObject(stats, getWidth()/2, 20);
     }
     
     public void act() {
@@ -32,5 +37,19 @@ public class MyWorld extends World
         Apple a = new Apple();
         addObject(a, Greenfoot.getRandomNumber(500) + 50, 10);
         appleCount ++;
+    }
+    
+    public void missedApple() {
+        applesMissed ++;
+        showStats();
+    }
+    
+    public void caughtApple() {
+        applesCaught ++;
+        showStats();
+    }
+    
+    public void showStats() {
+        stats.setValue("Caught: " + applesCaught + " Missed: " + applesMissed);
     }
 }
