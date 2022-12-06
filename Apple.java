@@ -18,14 +18,9 @@ public class Apple extends Actor
         setLocation(x, y);
         if (isAtEdge()) {
             world.missedApple();
-            world.deleteApple(this);
+            world.appleCount --;
+            world.removeObject(this);
+            
         }
     }    
-    
-    public int getY() {
-        return super.getY();
-    }
-    
-    
-    
 }

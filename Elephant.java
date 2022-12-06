@@ -9,7 +9,7 @@ public class Elephant extends Actor
     private GreenfootImage[] idleRight = new GreenfootImage[8];
     private GreenfootImage[] idleLeft = new GreenfootImage[8];
     private int animationIndex = 0;
-    private String animationState = "right";
+    private String animationState;
     
     public Elephant() {
         for (int i = 0; i < idleRight.length; i++) {
@@ -20,6 +20,7 @@ public class Elephant extends Actor
             idleLeft[i].mirrorHorizontally();
         }
         setImage(idleRight[0]);
+        animationState = "right";
     }
     
     
@@ -57,7 +58,6 @@ public class Elephant extends Actor
     public void eat() {
         if (isTouching(Apple.class)) {
             removeTouching(Apple.class);
-            world.addApple();
             world.caughtApple();
             world.appleCount --;
         }
@@ -66,9 +66,7 @@ public class Elephant extends Actor
     
     public void animate() {
         if (animationState == "right") {
-            
             animationIndex = (animationIndex + 1) % idleRight.length;
-            
             setImage(idleRight[animationIndex]);
             animationIndex ++;
         } else if (animationState == "left") {
