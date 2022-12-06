@@ -7,6 +7,9 @@ public class Apple extends Actor
     
     public Apple() {
         dropSpeed = Greenfoot.getRandomNumber(2)+1;
+        GreenfootImage image = new GreenfootImage("images/apple.png");
+        image.scale(28, 30);
+        setImage(image);
     }
     
     public void act() 
@@ -16,7 +19,7 @@ public class Apple extends Actor
         int x = getX();
         int y = getY() + dropSpeed + world.getDifficultly()/2;
         setLocation(x, y);
-        if (isAtEdge()) {
+        if (getY() > world.getHeight()) {
             world.missedApple();
             world.appleCount --;
             world.removeObject(this);
