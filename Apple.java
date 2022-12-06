@@ -6,7 +6,7 @@ public class Apple extends Actor
     private MyWorld world;
     
     public Apple() {
-        dropSpeed = Greenfoot.getRandomNumber(3)+3;
+        dropSpeed = Greenfoot.getRandomNumber(2)+1;
     }
     
     public void act() 
@@ -14,7 +14,7 @@ public class Apple extends Actor
         // Add your action code here.
         world = (MyWorld) getWorld();
         int x = getX();
-        int y = getY() + dropSpeed;
+        int y = getY() + dropSpeed + world.getDifficultly()/2;
         setLocation(x, y);
         if (isAtEdge()) {
             world.missedApple();

@@ -27,11 +27,12 @@ public class MyWorld extends World
     }
     
     public void act() {
-        if (hp < 0) {
+        if (hp <= 0) {
             Label gameover = new Label("Gameover" + "\n Total Score: " + score, 80);
             addObject(gameover, getWidth()/2, getHeight()/2);
             Greenfoot.stop();
         }
+        
         if (appleCount < 3) {
             if (Greenfoot.getRandomNumber(1 + appleCount*15) == 0) {
                 addApple();
@@ -55,9 +56,13 @@ public class MyWorld extends World
     
     public void caughtApple() {
         applesCaught ++;
-        score += 1*difficultly;
+        score += (int) (1.5*difficultly);
         hp ++;
         showStats();
+    }
+    
+    public int getDifficultly() {
+        return difficultly;
     }
     
     public void showStats() {
