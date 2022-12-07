@@ -19,7 +19,14 @@ public class StartScreen extends World
         super(600, 400, 1); 
         Label titleScreen = new Label("Hungry Animal", 100);
         titleScreen.setFillColor(Color.RED);
-        addObject(titleScreen, getWidth()/2, getHeight()/2);
+        addObject(titleScreen, getWidth()/2, getHeight()/4);
         
+    }
+    
+    public void act() {
+       if (Greenfoot.isKeyDown("space")) {
+           MyWorld world = new MyWorld();
+           Greenfoot.setWorld(world);
+       }
     }
 }

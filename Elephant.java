@@ -30,29 +30,36 @@ public class Elephant extends Actor
     {
        // kind of makes it slippery
        MyWorld world = (MyWorld) getWorld();
-       if (Math.abs(speed) < speedCap) {
+       
            
-           if (Greenfoot.isKeyDown("d")) {
-               speed += 0.5;
-           }
-           
-           if (Greenfoot.isKeyDown("a")) {
-               speed -= 0.5;
-           }
-
+       if (Greenfoot.isKeyDown("d") && speed < speedCap) {
+           speed += 0.5;
        }
+       
+       if (Greenfoot.isKeyDown("a") && speed > -speedCap) {
+           speed -= 0.5;
+       }
+
+       
        
        // if the speed is not 0 your speed decreases slowly. Also changes animations states
        if (speed < 0) {
            speed += 0.1;
+           if (speed > 0) {
+               speed = 0;
+           }
            animationState = "left";
        }
            
        if (speed > 0) {
-           speed -=0.1;
+           speed -= 0.1;
+           if (speed < 0) {
+               speed = 0;
+           }
            animationState = "right";
        }
        move((int)speed);
+
        // if the elephant moves too far offscreen it will cancel the movement
        if (getX() < -30 || getX() > world.getWidth()+30) {
            move((int) speed * -1);
