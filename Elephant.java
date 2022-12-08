@@ -10,6 +10,7 @@ public class Elephant extends Actor
     private GreenfootImage[] idleLeft = new GreenfootImage[8];
     private int animationIndex = 0;
     private String animationState;
+    private GreenfootSound elephantSound = new GreenfootSound("sounds/elephantcub.mp3");
     
     public Elephant() {
         for (int i = 0; i < idleRight.length; i++) {
@@ -39,8 +40,6 @@ public class Elephant extends Actor
        if (Greenfoot.isKeyDown("a") && speed > -speedCap) {
            speed -= 0.5;
        }
-
-       
        
        // if the speed is not 0 your speed decreases slowly. Also changes animations states
        if (speed < 0) {
@@ -71,6 +70,7 @@ public class Elephant extends Actor
     public void eat() {
         MyWorld world = (MyWorld) getWorld();
         if (isTouching(Apple.class)) {
+            elephantSound.play();
             removeTouching(Apple.class);
             world.caughtApple();
             world.appleCount --;

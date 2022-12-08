@@ -22,6 +22,7 @@ public class MyWorld extends World
         score = 0;
         stats = new Label("Caught: " + applesCaught + " Missed: " + applesMissed + "\n Score: " + score + " HP: " + hp, 40);
         addObject(stats, getWidth()/2, 40);
+        
     }
     
     public void act() {
