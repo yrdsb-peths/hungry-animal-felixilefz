@@ -23,7 +23,6 @@ public class Apple extends Actor
             world.missedApple();
             world.appleCount --;
             world.removeObject(this);
-            
         }
     }    
 }
