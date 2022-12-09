@@ -19,7 +19,7 @@ public class GameOverScreen extends World
         if (score > highScore) {
             highScore = score;
         }
-        Label gameover = new Label("Gameover" + "\n Total Score: " + score + "\n High Score: " + highScore, 80);
+        Label gameover = new Label("Gameover" + "\nTotal Score: " + score + "\nHigh Score: " + highScore, 80);
         addObject(gameover, getWidth()/2, getHeight()/2);
         
     }
