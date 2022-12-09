@@ -27,9 +27,9 @@ public class MyWorld extends World
     
     public void act() {
         if (hp <= 0) {
-            Label gameover = new Label("Gameover" + "\n Total Score: " + score, 80);
-            addObject(gameover, getWidth()/2, getHeight()/2);
-            Greenfoot.stop();
+            GameOverScreen gameOverScreen = new GameOverScreen(score);
+            
+            Greenfoot.setWorld(gameOverScreen);
             
         }
         
