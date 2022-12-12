@@ -8,14 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Button extends Actor
 {
-    /**
-     * Act - do whatever the Button wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     private World destination;
+    private Color textColor = null;
     
-    public Button(World destination) {
+    public Button(World destination, int width, int height, GreenfootImage image) {
         this.destination = destination;
+        image.scale(width, height);
+        setImage(image);
+        
+        
     }
     
     public void act() 
@@ -26,5 +28,9 @@ public class Button extends Actor
             
         }
         
-    }    
+    }
+    
+    public void updateImage() {
+        
+    }
 }

@@ -21,7 +21,7 @@ public class StartScreen extends World
         titleScreen.setFillColor(Color.RED);
         addObject(titleScreen, getWidth()/2, getHeight()/4);
         MyWorld world = new MyWorld();
-        Button play = new Button(world);
+        Button play = new Button(world, 300, 100, new GreenfootImage("images/button.png"));
         addObject(play, getWidth()/2, getHeight()/2);
     }
     
