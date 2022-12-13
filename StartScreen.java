@@ -18,14 +18,14 @@ public class StartScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         Label titleScreen = new Label("Hungry Animal", 100);
+         
         titleScreen.setFillColor(Color.RED);
         addObject(titleScreen, getWidth()/2, getHeight()/4);
-        MyWorld world = new MyWorld();
-        Button play = new Button(world, 300, 100, new GreenfootImage("images/button.png"));
-        addObject(play, getWidth()/2, getHeight()/2);
+        Button play = new Button(new MyWorld(), 200, 100, new GreenfootImage("images/play_button.png"));
+        addObject(play, getWidth()/2, getHeight()/2 + 20);
     }
     
-    public void act() {
-       
+    public void prepare() {
+        
     }
 }

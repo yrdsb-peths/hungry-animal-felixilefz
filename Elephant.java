@@ -80,14 +80,12 @@ public class Elephant extends Actor
     
     public void animate() {
         if (animationTimer.millisElapsed() > 100) {
-            if (animationState == "right") {
+            if (animationState == "right") { 
                 animationIndex = (animationIndex + 1) % idleRight.length;
                 setImage(idleRight[animationIndex]);
-                animationIndex ++;
             } else if (animationState == "left") {
                 animationIndex = (animationIndex + 1) % idleLeft.length;
                 setImage(idleLeft[animationIndex]);
-                animationIndex ++; 
             }
             animationTimer.mark();
         }

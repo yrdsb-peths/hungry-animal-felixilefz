@@ -20,15 +20,10 @@ public class GameOverScreen extends World
             highScore = score;
         }
         Label gameover = new Label("Gameover" + "\nTotal Score: " + score + "\nHigh Score: " + highScore, 80);
-        addObject(gameover, getWidth()/2, getHeight()/2);
-        
+        addObject(gameover, getWidth()/2, getHeight()/3);
+        Button playAgain = new Button(new StartScreen(), 200, 100, new GreenfootImage("images/play_again_button.png"));
+        addObject(playAgain, getWidth()/2, (int)(getHeight()/1.2));
     }
     
-    public void act() {
-        if (Greenfoot.isKeyDown("space")) {
-           StartScreen world = new StartScreen();
-           Greenfoot.setWorld(world);
-       }
-    }
     
 }
