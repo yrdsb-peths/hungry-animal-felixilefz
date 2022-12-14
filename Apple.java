@@ -1,5 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * The Apple class
+ */
 public class Apple extends Actor
 {
     private int dropSpeed;
