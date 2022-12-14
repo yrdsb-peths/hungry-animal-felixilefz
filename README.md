@@ -17,8 +17,8 @@ This particular repository is the starting template for the Hungry Elephant tuto
 
 Control the Elephant with **A** (left) and **D** (right)
 
-Apples fall from the sky and you need to catch them else you will take damage
-You have 50 starting HP. Every Apple you catch gives you one HP
+Apples fall from the sky and you need to catch them else you will take damage.
+You have 50 starting HP. Every Apple you catch gives you one HP.
 Apples deal one damage when they hit the ground. 
 Apples do more damage and get faster the further you get.
 But you also get more and more score the further you get.
